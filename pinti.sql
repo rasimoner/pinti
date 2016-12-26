@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Anamakine: localhost
--- Üretim Zamanı: 17 Eki 2016, 20:08:08
--- Sunucu sürümü: 10.1.16-MariaDB
--- PHP Sürümü: 5.6.24
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 26 Ara 2016, 09:28:33
+-- Sunucu sürümü: 10.1.19-MariaDB
+-- PHP Sürümü: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -129,6 +129,29 @@ CREATE TABLE `products` (
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `search`
+--
+
+CREATE TABLE `search` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `description` varchar(250) NOT NULL,
+  `keywords` text NOT NULL,
+  `link` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Tablo döküm verisi `search`
+--
+
+INSERT INTO `search` (`id`, `title`, `description`, `keywords`, `link`) VALUES
+(1, 'APPLE ', 'IPHONE 7', 'Telefon Apple', 'http://pinti.16mb.com/show-product?id=3'),
+(2, 'Samsung', 'Galaxy S7', 'Samsung Telefon', 'http://pinti.16mb.com/show-product?id=4'),
+(3, 'Adidas ', 'Superstar', 'Superstar adidas', 'http://pinti.16mb.com/show-product?id=8');
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `users`
 --
 
@@ -183,6 +206,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `search`
+--
+ALTER TABLE `search`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `users`
 --
 ALTER TABLE `users`
@@ -202,6 +231,11 @@ ALTER TABLE `category`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Tablo için AUTO_INCREMENT değeri `search`
+--
+ALTER TABLE `search`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Tablo için AUTO_INCREMENT değeri `users`
 --
